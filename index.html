@@ -259,17 +259,23 @@ function openChat(){
 </script>
 
 <!-- Tawk -->
-<script>
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/69eada347bef1a1c30ae658d/1jmum8nij';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
+curl -X POST 'https://api.dify.ai/v1/chat-messages' \
+--header 'Authorization: Bearer {api_key}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "inputs": {},
+  "query": "What are the specs of the iPhone 13 Pro Max?",
+  "response_mode": "streaming",
+  "conversation_id": "",
+  "user": "abc-123",
+  "files": [
+      {
+        "type": "image",
+      "transfer_method": "remote_url",
+      "url": "https://cloud.dify.ai/logo/logo-site.png"
+    }
+  ]
+}'
 
 </body>
 </html>
